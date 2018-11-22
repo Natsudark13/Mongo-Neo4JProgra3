@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Admin Page</h2>
+
+<div>
+
+    <hr>
+    <h3> Search for a customer and show all your reservation history </h3><br />
+    <h6>Customer name</h6>
+    <div>
+        @using (Html.BeginForm("historial", "CAdministrador", FormMethod.Post))
+        {
+
+        <input type="text" name="name" id="name" />
+
+        <input type="submit" value="Consult" />
+        }
+    </div>
+    <hr>
+
+</div>
+
+<div>
+
+    <hr>
+    <h3>
+        See all the sites where customers have made reservations </h3><br />
+    <div>
+        @using (Html.BeginForm("TodosLosSitios", "CAdministrador", FormMethod.Post))
+        {
+
+            
+
+            <input type="submit" value="Consult" />
+        }
+    </div>
+    <hr>
+
+</div>
+
+<div>
+
+    <hr>
+    <h3>
+        See the 5 sites for which more reservations have been registered
+    </h3><br />
+    <div>
+        @using (Html.BeginForm("Sitios5", "CAdministrador", FormMethod.Post))
+        {
+
+
+
+            <input type="submit" value="Consult" />
+        }
+    </div>
+    <hr>
+
+</div>
+
+<div>
+
+    <hr>
+    <h3>
+        Given a particular client show all other clients who have
+        reserved at least in a site in common with that client.
+    </h3><br />
+    <div>
+        @using (Html.BeginForm("Common", "CAdministrador", FormMethod.Post))
+        {
+
+            <input type="text" name="Customer" id="Customer" />
+
+            <input type="submit" value="Consult" />
+        }
+    </div>
+    <hr>
+
+</div>

@@ -148,14 +148,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\Neo4JC.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CAdministradorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerModel - Copy.cs" />
+    <Compile Include="Models\ReservationModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\DestinationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,10 +202,15 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Prueba\Index.cshtml" />
+    <Content Include="Views\Prueba\historial.cshtml" />
+    <Content Include="Views\CAdministrador\Index.cshtml" />
+    <Content Include="Views\CAdministrador\historial.cshtml" />
+    <Content Include="Views\CAdministrador\TodosLosSitios.cshtml" />
+    <Content Include="Views\CAdministrador\Sitios5.cshtml" />
+    <Content Include="Views\CAdministrador\Common.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

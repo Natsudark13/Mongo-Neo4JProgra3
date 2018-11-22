@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication1.Models.DestinationModel>
+
+@{
+    ViewBag.Title = "TodosLosSitios";
+}
+
+<h2>all the sites</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Direction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Long)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activities)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PricePP)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Long)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePP)
+            </td>
+
+        </tr>
+    }
+    <h2>
+
+        @Html.ActionLink("Index", "Index")
+
+    </h2>
+
+</table>

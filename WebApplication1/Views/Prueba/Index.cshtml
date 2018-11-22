@@ -1,11 +1,144 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
+<h2>Modulo Administrador</h2>
 
-<h2>Index</h2>
+
 <div>
-    <label> Valor: </label> @ViewBag.CitasPorPaciente
+
+    @Html.ActionLink("Crear Centro Medico", "Index", "CentroAtencion")  |
+
+    @Html.ActionLink("Crear Funcionario", "Index", "Funcionarios")
+
 </div>
 
 
+<div>
+
+
+    <hr>
+    <h3> Cantidad de citas del paciente</h3><br />
+    <h6>Cedula Paciente</h6>
+    <div>
+        @using (Html.BeginForm("CitasPorPaciente", "Consultas", FormMethod.Post))
+        {
+
+            <input type="text" name="cedula" id="cedula" />
+
+            <input type="submit" value="Consultar" />
+        }
+    </div>
+    <hr>
+
+</div>
+
+<div>
+
+    <hr>
+    <h3> Cantidad de Citas por estado</h3>
+    <div class="form-group">
+        @using (Html.BeginForm("CitasPorEstado", "Consultas", FormMethod.Post))
+        {
+            @Html.DropDownList("estado",
+                 new SelectList(new List<SelectListItem> {
+                 new SelectListItem { Text = "Registrada", Value = "0"},
+                 new SelectListItem { Text = "Cancelada por paciente", Value = "1"},
+                 new SelectListItem { Text = "Cancelada por centro médico", Value = "2"},
+                 new SelectListItem { Text = "Asignada", Value = "3"},
+                 new SelectListItem { Text = "Realizada", Value = "4"}
+                  }, "Value", "Text"),
+                     "Selecione estado",
+                     new { @class = "form-control" })
+
+            <input type="submit" value="Consultar" />
+
+        }
+    </div>
+    <hr>
+
+
+</div>
+
+<div>
+
+
+    <hr>
+    <h3> Cantidad de citas por especialidad</h3><br />
+    <h6>Especialidad</h6>
+    <div>
+        @using (Html.BeginForm("CitasPorEspecialidad", "Consultas", FormMethod.Post))
+        {
+
+            <input type="text" name="especialidad" id="especialidad" />
+
+            <input type="submit" value="Consultar" />
+        }
+    </div>
+    <hr>
+
+
+
+
+</div>
+
+<div>
+
+
+    <hr>
+    <h3> Filtrar por fecha</h3>
+    <div>
+        @using (Html.BeginForm("CitasPorFecha", "Consultas", FormMethod.Post))
+        {
+            <input type="text" name="date1" id="date1" />
+            <input type="text" name="date2" id="date2" />
+
+            <input type="submit" value="CitasPorFecha" />
+        }
+    </div>
+    <hr>
+
+</div>
+
+<div>
+
+    <h3>Pacientes con más citas: </h3> @ViewBag.PacientesConMasCitas
+</div>
+
+
+
+
+<hr>
+<h3> Cantidad de veces que ha sido asignado un tratamiento</h3><br />
+<h6>Tratamiento</h6>
+<div>
+    @using (Html.BeginForm("CantidadTratamiento", "Consultas", FormMethod.Post))
+    {
+
+        <input type="text" name="tratamiento" id="tratamiento" />
+
+        <input type="submit" value="Consultar" />
+    }
+</div>
+
+
+<hr>
+
+
+
+
+<hr>
+<h3> Monto Promedio del tratamiento</h3><br />
+<h6>Tratamiento</h6>
+
+<div>
+    @using (Html.BeginForm("PromedioMonto", "Consultas", FormMethod.Post))
+    {
+
+        <input type="text" name="Tratamiento" id="tratamiento" />
+
+        <input type="submit" value="Consultar" />
+    }
+</div>
+<hr>
+
+@Html.ActionLink("Cantidad de enfermedades mas diagnosticadas", "EnfermedadesMasDiagnosticadas", "Consultas")
